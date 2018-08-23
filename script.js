@@ -1,81 +1,84 @@
-var squares = document.querySelectorAll(".square");
-var playerButton = document.querySelector("#first");
-var message = document.querySelector("#message");
+const squares = document.querySelectorAll("td");
+const playerButton = document.querySelector("#first");
+const message = document.querySelector("#message");
 
 const INF = 100000;
 const MAX_DEPTH = 6;
 const winStates = [
-	[0, 1, 2], [0, 4, 8], 
+	[0, 1, 2], [0, 4, 8],
 	[0, 3, 6], [1, 4, 7],
 	[2, 5, 8], [3, 4, 5],
-	[6, 7, 8], [2, 4, 6]];
+	[6, 7, 8], [2, 4, 6]
+];
 
-var gameOver;
-var board;
+let gameOver;
+let board;
 
-init();
+/* Sets all variables to initial values */
 function init(){
+	for(let i = 0; i < squares.length; i++){
+		squares[i].classList.remove("selected");
+	}
 	playerButton.classList.add("selected");
 	gameOver = false;
 	board = ["", "", "", "", "", "", "", "", ""];
-	message.textContent	= "";
+	message.innerText	= "";
 	updateDisplay(board);
 }
 
-for(var i = 0; i < squares.length; i++){
-	squares[i].addEventListener("click", function(){
-		humanMove(this);
-		setTimeout(aiMove, 500);
-	});
-}
-
-playerButton.addEventListener("click", function(){
-	this.classList.toggle("selected");
-	aiMove();
-});
-
+/* Logic for human move */
 function humanMove(context){
-	if(context.textContent === "" && !gameOver){
-		context.textContent = "X";
-
-		for(var i = 0; i < squares.length; i++)
-			board[i] = squares[i].textContent;
-
+	if(!gameOver){
+		context.innerText = "X";
+		for(let i = 0; i < squares.length; i++)
+			board[i] = squares[i].innerText;
 		gameOver = updateMessage(evaluate(board), false);
 	}
 }
 
+/* Logic for AI move */
 function aiMove(){
 	if(!gameOver){
 		board = minimax(board, MAX_DEPTH, false);
-		
 		updateDisplay(board);
 		gameOver = updateMessage(evaluate(board), true);
 	}
 }
 
+/* Updates Win/Lose/Draw message and returns true if game is over */
 function updateMessage(eval, isHumanNext){
-	if(eval === -10){
-		message.textContent = "You Lose";
-	} else if(eval === 10){
-		message.textContent = "You Win";
-	} else if (eval === 0){
-		message.textContent = "Draw";
-	} else {
-		message.textContent = isHumanNext?"Your Turn":"";
-		return false;
+	switch(eval){
+		case -10: message.innerText = "You Lose"; markWinState(board);return true;
+		case 10: message.innerText = "You Win"; markWinState(board);return true;
+		case 0: message.innerText = "Draw";return true;
+		default: message.innerText = isHumanNext?"Your Turn":"";return false;
 	}
-	return true;
 }
 
+/* Marks the win state for human or AI on the board */
+function markWinState(board){
+	for(let i = 0; i < winStates.length; i++){
+		let state = winStates[i];
+		if(board[state[0]] === board[state[1]] &&
+			 board[state[0]] === board[state[2]] &&
+			 board[state[0]] !== ""){
+			squares[state[0]].classList.add("selected");
+			squares[state[1]].classList.add("selected");
+			squares[state[2]].classList.add("selected");
+			return;
+		}
+	}
+}
+
+/* Updates contents of the game board */
 function updateDisplay(board){
-	for(var i = 0; i < squares.length; i++)
-		squares[i].textContent = board[i];
+	squares.forEach((val, i) => val.innerText = board[i]);
 }
 
+/* Returns a score for current state of the board */
 function evaluate(board){
-	for(var i = 0; i < winStates.length; i++){
-		var state = winStates[i];
+	for(let i = 0; i < winStates.length; i++){
+		let state = winStates[i];
 		if(board[state[0]] === board[state[1]] &&
 			 board[state[0]] === board[state[2]] &&
 			 board[state[0]] !== ""){
@@ -85,15 +88,17 @@ function evaluate(board){
 	return noMoves(board)?0:-1;
 }
 
+/* Returns true is no more moves can be made */
 function noMoves(board){
-	return (board.indexOf("") == -1);
+	return board.indexOf("") === -1;
 }
 
+/* Generates next states given current state and player */
 function generateStates(board, isHuman){
-	var states = [];
-	for(var i = 0; i < board.length; i++){
+	let states = [];
+	for(let i = 0; i < board.length; i++){
 		if(board[i] === ""){
-			var newState = board.slice();
+			let newState = board.slice();
 			newState[i] = isHuman?"X":"O";
 			states.push(newState);
 		}
@@ -101,17 +106,18 @@ function generateStates(board, isHuman){
 	return states;
 }
 
+/* Recursive algorithm that returns the best state */
 function minimax(board, depth, isHuman){
-	var res = evaluate(board);
+	let res = evaluate(board);
 	if(depth === 0 || res !== -1)
 		return res;
 
-	var nextStates = generateStates(board, isHuman);
-	var bestState = nextStates[0];
+	let nextStates = generateStates(board, isHuman);
+	let bestState = nextStates[0];
 
-	var bestEval = isHuman?-INF:INF;
-	for(var i = 0; i < nextStates.length; i++){
-		var eval = minimax(nextStates[i], depth - 1, !isHuman);
+	let bestEval = isHuman?-INF:INF;
+	for(let i = 0; i < nextStates.length; i++){
+		let eval = minimax(nextStates[i], depth - 1, !isHuman);
 
 		if((isHuman && (eval > bestEval)) || (!isHuman && (eval < bestEval))){
 			bestEval = eval;
@@ -120,3 +126,22 @@ function minimax(board, depth, isHuman){
 	}
 	return (depth === MAX_DEPTH)?bestState:bestEval;
 }
+
+/* Calls the human and AI move functions when board is clicked */
+for(let i = 0; i < squares.length; i++){
+	squares[i].addEventListener("click", function(){
+		if(this.innerText === ""){
+			humanMove(this);
+			setTimeout(aiMove, 500);
+		}
+	});
+}
+
+playerButton.addEventListener("click", function(){
+	this.classList.toggle("selected");
+	aiMove();
+});
+
+document.querySelector("#replay").addEventListener("click", init);
+
+init();
