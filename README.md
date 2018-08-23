@@ -1,4 +1,5 @@
 # Tic Tac Toe
 An unbeatable tic-tac-toe game made using HTML, CSS and JavaScript
 
-![screenshot](https://user-images.githubusercontent.com/23068820/42721048-9f7d4b30-8750-11e8-8ab4-b26dbb569e9d.png)
+![screenshot1](https://user-images.githubusercontent.com/23068820/44520079-86de2c00-a6ec-11e8-8190-506ce8f71a2b.png)
+![screenshot2](https://user-images.githubusercontent.com/23068820/44520087-89408600-a6ec-11e8-92b4-f2885fc86857.png)
