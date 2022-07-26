@@ -1,6 +1,6 @@
 const squares = document.querySelectorAll("td");
 const playerButton = document.querySelector("#first");
-const message = document.querySelector("#message");
+const message = document.querySelector("#top-bar");
 
 const INF = 100000;
 const MAX_DEPTH = 6;

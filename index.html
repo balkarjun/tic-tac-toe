@@ -9,31 +9,36 @@
 	<link href="https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap" rel="stylesheet">
 </head>
 <body>
-	<div id="bar">
-		<button id="replay">Play Again</button>
-		<span id="message"></span>
-		<button id="first" class="selected">Play First</button>
-	</div>
+	<div id="app">
+		<div id="top-bar"></div>
 
-	<table>
-		<tbody>
-			<tr>
-				<td class="horizontal vertical"></td>
-				<td class="horizontal vertical"></td>
-				<td class="horizontal"></td>
-			</tr>
-			<tr>
-				<td class="horizontal vertical"></td>
-				<td class="horizontal vertical"></td>
-				<td class="horizontal"></td>
-			</tr>
-			<tr>
-				<td class="vertical"></td>
-				<td class="vertical"></td>
-				<td></td>
-			</tr>
-		</tbody>
-	</table>
+		<div id="board">
+			<table>
+				<tbody>
+					<tr>
+						<td class="horizontal vertical"></td>
+						<td class="horizontal vertical"></td>
+						<td class="horizontal"></td>
+					</tr>
+					<tr>
+						<td class="horizontal vertical"></td>
+						<td class="horizontal vertical"></td>
+						<td class="horizontal"></td>
+					</tr>
+					<tr>
+						<td class="vertical"></td>
+						<td class="vertical"></td>
+						<td></td>
+					</tr>
+				</tbody>
+			</table>	
+		</div>
+
+		<div id="bottom-bar">
+			<button id="replay">Play Again</button>
+			<button id="first" class="selected">Play First</button>	
+		</div>
+	</div>
 
 	<script type="text/javascript" src="script.js"></script>
 </body>
