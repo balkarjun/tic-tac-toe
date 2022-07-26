@@ -1,5 +1,5 @@
 const squares = document.querySelectorAll("td");
-const playerButton = document.querySelector("#first");
+const playerButton = document.querySelector("#skip");
 const message = document.querySelector("#top-bar");
 
 const INF = 100000;
@@ -147,6 +147,6 @@ playerButton.addEventListener("click", function(){
 	aiMove();
 });
 
-document.querySelector("#replay").addEventListener("click", init);
+document.querySelector("#restart").addEventListener("click", init);
 
 init();
