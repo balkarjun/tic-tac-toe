@@ -19,7 +19,6 @@ function init(){
 	for(let i = 0; i < squares.length; i++){
 		squares[i].classList.remove("selected", "blue", "yellow");
 	}
-	playerButton.classList.add("selected");
 	gameOver = false;
 	board = ["", "", "", "", "", "", "", "", ""];
 	message.innerText	= "";
@@ -145,7 +144,6 @@ for(let i = 0; i < squares.length; i++){
 }
 
 playerButton.addEventListener("click", function(){
-	this.classList.toggle("selected");
 	aiMove();
 });
 

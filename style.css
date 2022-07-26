@@ -5,7 +5,7 @@
 }
 
 body{
-	font-family: sans-serif;
+	font-family: "Ubuntu", sans-serif;
 	font-size: 24px;
 	background-color: #222222;
 	height: 100vh;
@@ -13,23 +13,21 @@ body{
 
 button{
 	font-size: inherit;
-	height: 100%;
-	text-transform: uppercase;
+	text-transform: lowercase;
+	padding: 8px 32px;
 	border: none;
 	background: none;
 	font-family: inherit;
-	color: white;
-	border: 2px solid white;
-	border-radius: 2px;
+	color: #eeeeee;
+	background-color: #333333;
+	border-radius: 4px;
 	outline: none;
-	letter-spacing: 1px;
-	transition: all 0.3s;
-  --webkit-transition: all 0.3s;
-  --moz-transition: all 0.3s;
+	cursor: pointer;
+	transition: all 0.1s;
 }
 
 button:hover{
-	background-color: white;
+	background-color: #eeeeee;
 	color: #111111;
 }
 
@@ -42,40 +40,46 @@ table{
 td{
 	width: 33.33%;
 	height: 33.33%;
-	color: white;
 	text-align: center;
 	font-family: 'Fredoka One';
-	font-size: 100px;
+	font-size: 120px;
 	cursor: pointer;
 }
 
 #app {
+	width: 85vw;
+	max-width: 80vh;
+	margin: 0 auto;
 	height: 100vh;
 	display: flex;
 	flex-direction: column;
-	justify-content: space-evenly;
+	justify-content: center;
 }
 
 #top-bar {
-	height: 10vw;
-	max-height: 10vh;
+	height: 10vh;
 	text-align: center;
-	color: white;
-	font-size: 1.5em;
+	color: #eeeeee;
+	font-size: 1.3em;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	text-transform: lowercase;
 }
 
 #board {
-	width: 80vw;
-	height: 80vw;
+	width: 85vw;
+	height: 85vw;
 	max-width: 80vh;
 	max-height: 80vh;
 	margin: 0 auto;
 }
 
 #bottom-bar {
-	height: 10vw;
-	max-height: 10vh;
-	text-align: center;
+	height: 10vh;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
 }
 
 .horizontal{
@@ -86,15 +90,15 @@ td{
 	border-right: 4px solid #444444;
 }
 
-.selected{
-	background-color: white;
-	color: #222222;
-}
-
 .yellow {
 	color: #f7de3a;
 }
 
 .blue {
 	color: #2288cc;
+}
+
+.selected{
+	background-color: #333333;
+	color: #eeeeee;
 }
