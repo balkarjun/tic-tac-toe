@@ -17,7 +17,7 @@ let board;
 /* Sets all variables to initial values */
 function init(){
 	for(let i = 0; i < squares.length; i++){
-		squares[i].classList.remove("selected");
+		squares[i].classList.remove("selected", "blue", "yellow");
 	}
 	playerButton.classList.add("selected");
 	gameOver = false;
@@ -30,6 +30,8 @@ function init(){
 function humanMove(context){
 	if(!gameOver){
 		context.innerText = "X";
+		context.classList.add("blue");
+
 		for(let i = 0; i < squares.length; i++)
 			board[i] = squares[i].innerText;
 		gameOver = updateMessage(evaluate(board), false);
@@ -72,7 +74,12 @@ function markWinState(board){
 
 /* Updates contents of the game board */
 function updateDisplay(board){
-	squares.forEach((val, i) => val.innerText = board[i]);
+	squares.forEach((val, i) => {
+		val.innerText = board[i];
+		if (board[i] === "O") {
+			squares[i].classList.add("yellow");
+		}
+	});
 }
 
 /* Returns a score for current state of the board */
