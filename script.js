@@ -21,7 +21,7 @@ function init(){
 	}
 	gameOver = false;
 	board = ["", "", "", "", "", "", "", "", ""];
-	message.innerText	= "";
+	message.innerText = "your turn";
 	updateDisplay(board);
 }
 
@@ -49,10 +49,10 @@ function aiMove(){
 /* Updates Win/Lose/Draw message and returns true if game is over */
 function updateMessage(eval, isHumanNext){
 	switch(eval){
-		case -10: message.innerText = "You Lose"; markWinState(board);return true;
-		case 10: message.innerText = "You Win"; markWinState(board);return true;
-		case 0: message.innerText = "Draw";return true;
-		default: message.innerText = isHumanNext?"Your Turn":"";return false;
+		case -10: message.innerText = "you lose"; markWinState(board);return true;
+		case 10: message.innerText = "you win"; markWinState(board);return true;
+		case 0: message.innerText = "it's a draw";return true;
+		default: message.innerText = isHumanNext?"your turn":"";return false;
 	}
 }
 
