@@ -1,46 +1,48 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-<head>
-	<meta charset="utf-8">
-	<title>Tic Tac Toe</title>
-	<link rel="stylesheet" type="text/css" href="style.css">
-	<link rel="preconnect" href="https://fonts.googleapis.com">
-	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	<link href="https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap" rel="stylesheet">
-	<link href="https://fonts.googleapis.com/css2?family=Ubuntu&display=swap" rel="stylesheet">
-</head>
-<body>
-	<div id="app">
-		<div id="top-bar"></div>
+    <head>
+        <meta charset="utf-8" />
+        <title>Tic Tac Toe</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Ubuntu&display=swap"
+            rel="stylesheet"
+        />
+        <link rel="stylesheet" type="text/css" href="style.css" />
+    </head>
+    <body>
+        <div id="app">
+            <div id="message"></div>
 
-		<div id="board">
-			<table>
-				<tbody>
-					<tr>
-						<td class="horizontal vertical"></td>
-						<td class="horizontal vertical"></td>
-						<td class="horizontal"></td>
-					</tr>
-					<tr>
-						<td class="horizontal vertical"></td>
-						<td class="horizontal vertical"></td>
-						<td class="horizontal"></td>
-					</tr>
-					<tr>
-						<td class="vertical"></td>
-						<td class="vertical"></td>
-						<td></td>
-					</tr>
-				</tbody>
-			</table>	
-		</div>
+            <div id="board">
+                <table>
+                    <tbody>
+                        <tr>
+                            <td class="horizontal vertical"></td>
+                            <td class="horizontal vertical"></td>
+                            <td class="horizontal"></td>
+                        </tr>
+                        <tr>
+                            <td class="horizontal vertical"></td>
+                            <td class="horizontal vertical"></td>
+                            <td class="horizontal"></td>
+                        </tr>
+                        <tr>
+                            <td class="vertical"></td>
+                            <td class="vertical"></td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
 
-		<div id="bottom-bar">
-			<button id="restart">restart</button>
-			<button id="skip">skip turn</button>	
-		</div>
-	</div>
+            <div id="options">
+                <button id="restart">restart</button>
+                <button id="skip">skip turn</button>
+            </div>
+        </div>
 
-	<script type="text/javascript" src="script.js"></script>
-</body>
+        <script type="text/javascript" src="script.js"></script>
+    </body>
 </html>

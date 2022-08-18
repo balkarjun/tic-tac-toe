@@ -1,104 +1,104 @@
 * {
-	margin: 0;
-	padding: 0;
-	box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-body{
-	font-family: "Ubuntu", sans-serif;
-	font-size: 24px;
-	background-color: #222222;
-	height: 100vh;
+body {
+    font-family: "Ubuntu", sans-serif;
+    font-size: 24px;
+    background-color: #222222;
+    height: 100vh;
 }
 
-button{
-	font-size: inherit;
-	text-transform: lowercase;
-	padding: 8px 32px;
-	border: none;
-	background: none;
-	font-family: inherit;
-	color: #eeeeee;
-	background-color: #333333;
-	border-radius: 4px;
-	outline: none;
-	cursor: pointer;
-	transition: all 0.1s;
+button {
+    font-size: inherit;
+    text-transform: lowercase;
+    padding: 8px 32px;
+    border: none;
+    background: none;
+    font-family: inherit;
+    color: #eeeeee;
+    background-color: #333333;
+    border-radius: 4px;
+    outline: none;
+    cursor: pointer;
+    transition: all 0.1s;
 }
 
-button:hover{
-	background-color: #eeeeee;
-	color: #111111;
+button:hover {
+    background-color: #eeeeee;
+    color: #111111;
 }
 
-table{
-	border-collapse: collapse;
-	width: 100%;
-	height: 100%;
+table {
+    border-collapse: collapse;
+    width: 100%;
+    height: 100%;
 }
 
-td{
-	width: 33.33%;
-	height: 33.33%;
-	text-align: center;
-	font-family: 'Fredoka One';
-	font-size: 120px;
-	cursor: pointer;
+td {
+    width: 33.33%;
+    height: 33.33%;
+    text-align: center;
+    font-family: "Fredoka One";
+    font-size: 120px;
+    cursor: pointer;
 }
 
 #app {
-	width: 85vw;
-	max-width: 80vh;
-	margin: 0 auto;
-	height: 100vh;
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
+    width: 85vw;
+    max-width: 80vh;
+    margin: 0 auto;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
-#top-bar {
-	height: 10vh;
-	text-align: center;
-	color: #eeeeee;
-	font-size: 1.3em;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	text-transform: lowercase;
+#message {
+    height: 10vh;
+    text-align: center;
+    color: #eeeeee;
+    font-size: 1.3em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-transform: lowercase;
 }
 
 #board {
-	width: 85vw;
-	height: 85vw;
-	max-width: 80vh;
-	max-height: 80vh;
-	margin: 0 auto;
+    width: 85vw;
+    height: 85vw;
+    max-width: 80vh;
+    max-height: 80vh;
+    margin: 0 auto;
 }
 
-#bottom-bar {
-	height: 10vh;
-	display: flex;
-	align-items: center;
-	justify-content: space-between;
+#options {
+    height: 10vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 
-.horizontal{
-	border-bottom: 4px solid #444444;
+.horizontal {
+    border-bottom: 4px solid #444444;
 }
 
-.vertical{
-	border-right: 4px solid #444444;
+.vertical {
+    border-right: 4px solid #444444;
 }
 
 .yellow {
-	color: #f7de3a;
+    color: #f7de3a;
 }
 
 .blue {
-	color: #2288cc;
+    color: #2288cc;
 }
 
-.selected{
-	background-color: #333333;
-	color: #eeeeee;
+.selected {
+    background-color: #333333;
+    color: #eeeeee;
 }
